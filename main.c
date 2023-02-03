@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
-int delta(int A,int  B,int C){
-    int resultado = pow(B, 2) - 4 * A * C;
+float delta(int A,int  B,int C){
+    double resultado = pow(B, 2) - 4 * A * C;
     resultado = sqrt(resultado);
 
     return resultado;
@@ -10,8 +10,12 @@ int delta(int A,int  B,int C){
 
 int main(){
     int A, B, C;
-    int valorDelta;
-    int s1,s2;
+    double valorDelta;
+    double s1,s2;
+
+    printf("--------------------------\n");
+    printf("---Calculadora Bhaskara---\n");
+    printf("--------------------------\n");
 
     printf("Digite o Valor de A: ");
     scanf("%d", &A);
@@ -29,7 +33,11 @@ int main(){
     s1 = (-B + valorDelta) / (2 * A);
     s2 = (-B - valorDelta) / (2 * A);
 
-    printf("Seu Primeiro Resultado foi %d e o segundo %d \n", s1, s2);
+    if(s1 < 100 && s1 > -100 && s2 < 100 && s2 > -100){
+        printf("Seu Primeiro Resultado foi %f e o segundo %f \n", s1, s2);
+    } else{
+        printf("A equação de 2º grau não possui raízes reais!\n");
+    }   
 
     return 0;
 }
